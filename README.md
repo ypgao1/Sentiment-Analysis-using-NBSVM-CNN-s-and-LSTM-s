@@ -9,10 +9,10 @@ We will be comparing NBSVM to both bidirectional LSTM's and CNN's to assess it's
 
 The NBSVM approach is to weigh each feature by a "log-count ratio" before feeding the new weighted features into a linear classifier like SVM or logistic regression.
 
-As per the paper: **f**$^{(i)} \in \R^{|V|}$,  where **f**$^{(i)}$ is the $i^{th}$ training example that is a vector of size $|V|$ and $V$ is the set of features in our training corpus. 
+As per the paper, the ith training vector x(i) has shape (1xm) where m is the number of features in our text corpus. 
 
-We then create 2 new vectors **p** and **q** both the size (1 x $|V|$). The vector **p** is created by adding all vectors **f**$^{(i)}$ where its associated label is $1$. Likewise, **q** is created by adding all vectors where its associated label is $-1$.  Note that we add 1 to each element in vectors **p** and **q**. This helps work around both divide by 0 and $\log0$ issues (an example of additive smoothing). 
+We then create 2 new vectors **p** and **q** both the size (1 x m). The vector **p** is created by adding all vectors x(i) where its associated label is 1. Likewise, **q** is created by adding all vectors where its associated label is -1 (or 0 or whatever numbers you use to represent classes).  Note that we add 1 to each element in vectors **p** and **q**. This helps work around both divide by 0 and log0 issues (an example of additive smoothing). 
 
 The log count ratio **r**, is simply the logarithm of the normalized vector **p** divided by the normalized vector **q**.
 
-Finally, we weigh each training vector **f**$^{(i)}$ by multiplying each element of **f**$^{(i)}$ with each element of **r** (element wise multiplication). And so we are ready to feed into a linear classifier!
+Finally, we weigh each training vector x(i) by multiplying each element of x(i) with each element of **r** (element wise multiplication). And so we are ready to feed into a linear classifier!
