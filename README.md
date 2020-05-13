@@ -1,2 +1,4 @@
 # imdb-sentiment-analysis
-Demonstrate the novel approach of linear classifiers with naive bayes weighted embeddings against neural network architectures for text classification 
+This project is to implement and demonstrate the effectiveness of a classifier that first scales feature vectors by a naive bayes log count ratio before using a linear classifier (SVM was chosen here but others ie logistic regression can also be used).  This classifier, NBSVM, comes from a paper [Baselines and Bigrams: Simple, Good Sentiment and Topic Classification](https://www.aclweb.org/anthology/P12-2018.pdf) and [repo](https://github.com/sidaw/nbsvm)  by Sida Wang and Christopher D. Manning. 
+
+Although it is widely acknowledged in research, (over 900 citations), it's not too well known amongst data science practitioners. FastAI's creator Jeremy Howard has wrote about it on [Kaggle](https://www.kaggle.com/jhoward/nb-svm-strong-linear-baseline) but there was a time bottleneck in his implementation. This implementation has fixed the bottleneck (from >1hr to a few seconds at most) as well as using an Linear SVM classifier for speed. 
