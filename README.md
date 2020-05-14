@@ -16,3 +16,12 @@ We then create 2 new vectors **p** and **q** both the size (1 x m). The vector *
 The log count ratio **r**, is simply the logarithm of the normalized vector **p** divided by the normalized vector **q**.
 
 Finally, we weigh each training vector x(i) by multiplying each element of x(i) with each element of **r** (element wise multiplication). And so we are ready to feed into a linear classifier!
+
+## Results
+|Model| Test Accuracy |
+|--|--|
+| NBSVM |  91.52%|
+| LSTM|  88.85%|
+| CNN|  85.14%|
+
+We were able to confirm in our own implementation that NBSVM achieves an accuracy of around 91%, and better than 2 neural net architectures. Note that the [state of the art approaches](https://paperswithcode.com/sota/sentiment-analysis-on-imdb)  uses some variations of naive bayes weighted embeddings, LSTM's, CNN's or Transformers ( ie BERT).
